@@ -1067,7 +1067,7 @@
   }
   function decodeCell(v){
     const n = Number(v);
-    if (!Number.isFinite(n) || n < 0 || n > 211) throw new Error('非法块编码: ' + v);
+    if (!Number.isFinite(n) || !Number.isInteger(n) || n < 0 || n > 211) throw new Error('非法块编码: ' + v);
     if (n >= 200 && n <= 211) return makeCell(n - 200, 'bomb');
     if (n >= 120 && n <= 131) return makeCell(n - 120, 'col');
     if (n >= 100 && n <= 111) return makeCell(n - 100, 'row');
